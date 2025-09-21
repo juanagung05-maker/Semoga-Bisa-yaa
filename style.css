@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0; padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  display: flex; justify-content: center; align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+#hearts { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:0;}
+.heart { position:absolute; bottom:-20px; font-size:20px; animation:floatUp 8s linear forwards; opacity:0.8;}
+@keyframes floatUp {0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-120vh) scale(1.5);opacity:0;}}
+
+/* Intro */
+.center-screen { position:relative; z-index:2; text-align:center;}
+.judul-intro { font-family:'Pacifico',cursive; font-size:2.6em; color:#ff4d6d; margin-bottom:25px; text-shadow:2px 2px 6px rgba(255,100,150,.3);}
+.btn { border:none; padding:12px 26px; font-size:1em; border-radius:30px; cursor:pointer; transition:all .3s ease; font-weight:600;}
+.btn.pastel { background:#ff9aa2; color:white; box-shadow:0 4px 10px rgba(255,100,150,.2);}
+.btn.pastel:hover{background:#ff748c; transform:scale(1.07);}
+.hidden{display:none;}
+
+/* Amplop */
+.envelope-wrapper { position:relative; width:340px; height:240px; margin:0 auto; perspective:1000px; cursor:pointer;}
+.envelope { width:100%; height:100%; position:relative; transform-style:preserve-3d;}
+.back { position:absolute; width:100%; height:100%; background:#ffe0e9; border-radius:8px; z-index:1; box-shadow:0 6px 15px rgba(0,0,0,0.15);}
+
+/* Sayap kiri-kanan */
+.left-flap {
+  position:absolute; left:0; top:0; width:50%; height:100%;
+  background:#ffc2d1; clip-path: polygon(0 0, 100% 50%, 0 100%); z-index:2;
+}
+.right-flap {
+  position:absolute; right:0; top:0; width:50%; height:100%;
+  background:#ffc2d1; clip-path: polygon(100% 0, 100% 100%, 0 50%); z-index:2;
+}
+
+/* Surat */
+.letter {
+  position:absolute; bottom:0; left:50%; transform:translateX(-50%) translateY(100%);
+  width:92%; opacity:0; z-index:3; transition:transform 1.5s ease, opacity 1s ease;
+}
+.paper {
+  background:#fffdf8; padding:25px; border:2px dashed #ff9aa2;
+  border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  font-size:1.05em; line-height:1.8em; color:#444; text-align:justify; white-space: pre-line;
+  max-height: 220px; overflow-y: auto;
+}
+
+/* Front bawah */
+.front {
+  position:absolute; bottom:0; left:0; width:100%; height:60%;
+  background:#f8a5c2; border-bottom-left-radius:8px; border-bottom-right-radius:8px; z-index:4;
+}
+
+/* Flap atas */
+.top-flap {
+  position:absolute; top:0; left:0; width:100%; height:60%;
+  background:#f78fb3; clip-path:polygon(0 0,100% 0,50% 100%);
+  transform-origin:top; transition:transform 1s ease; z-index:5;
+  box-shadow:0 4px 6px rgba(0,0,0,0.15);
+}
+.envelope-wrapper.open .top-flap { transform: rotateX(180deg);}
+.envelope-wrapper.open .letter { transform:translateX(-50%) translateY(-30%); opacity:1; z-index:6; animation:bounceUp 1s ease;}
+@keyframes bounceUp {0%{transform:translateX(-50%) translateY(100%);}70%{transform:translateX(-50%) translateY(-40%);}100%{transform:translateX(-50%) translateY(-30%);}}
+
+/* Seal (stiker love) */
+.seal {
+  position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
+  background:#ff4d6d; color:white; font-size:1.2em; padding:10px; border-radius:50%;
+  z-index:6; box-shadow:0 3px 6px rgba(0,0,0,0.2);
+}
+.envelope-wrapper.open .seal { display:none; }
+
+/* Hint */
+.hint { color:#d6336c; font-size:0.95em; animation:blink 1.5s infinite; margin-top:10px;}
+@keyframes blink{50%{opacity:.4;}}
+
+/* Choice area */
+.choice-area { margin-top:25px; display:flex; justify-content:center; gap:25px; opacity:0; transition:opacity 1s ease;}
+.btn.yes{background:#ff9aa2;color:white;}
+.btn.no{background:#ddd;color:#444;}
+.btn.yes:hover{background:#ff748c; transform:scale(1.07);}
+.btn.no:hover{background:#bbb;}
+
+/* Janji */
+.janji-text { margin-top:25px; font-family:'Pacifico',cursive; font-size:1.5em; color:#ff4d6d; text-align:center; animation:fadeIn 1s ease;}
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+
+/* I Love You */
+.love-text {
+  margin-top: 20px; font-family: 'Pacifico', cursive;
+  font-size: 2.5em; color: #ff3366;
+  text-shadow: 2px 2px 6px rgba(255,0,100,0.3);
+  animation: pulse 2s infinite; opacity: 0; transition: opacity 1s ease;
+}
+@keyframes pulse {0% { transform: scale(1);}50% { transform: scale(1.15);}100% { transform: scale(1);}}
+
+/* Flowers */
+.flowers { display:flex; justify-content:center; gap:15px; margin-top:15px; font-size:2em; opacity:0; transition:opacity 1s ease;}
+/* Sparkle */
+.sparkle {
+  position: absolute;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 0 8px #ffb6c1;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity:0; transform: scale(0.5);}
+  50% { opacity:1; transform: scale(1);}
+}
+
+/* Surat goyang saat hover */
+.paper:hover {
+  transform: rotate(-1deg) scale(1.02);
+  transition: 0.3s ease;
+}

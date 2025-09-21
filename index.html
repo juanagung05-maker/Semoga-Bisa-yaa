@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat Cinta 💌</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Intro -->
+  <div id="intro" class="center-screen">
+    <h1 class="judul-intro">Dear Arum 💞</h1>
+    <button id="nextBtn" class="btn pastel">Next ➡️</button>
+  </div>
+
+  <!-- Amplop -->
+  <div id="envelopeScreen" class="center-screen hidden">
+    <div class="envelope-wrapper" id="envelope">
+      <div class="envelope">
+        <div class="back"></div>
+        <div class="left-flap"></div>
+        <div class="right-flap"></div>
+        <div class="letter" id="letter">
+          <div class="paper">
+            <p class="confession" id="text"></p>
+          </div>
+        </div>
+        <div class="front"></div>
+        <div class="top-flap"></div>
+        <div class="seal">💕</div>
+      </div>
+    </div>
+    <p class="hint">Klik amplop untuk membukanya 💌</p>
+
+    <!-- Pilihan Yes / No -->
+    <div id="choice" class="hidden choice-area">
+      <button id="btnYes" class="btn yes">Yes 💕</button>
+      <button id="btnNo" class="btn no">No 😢</button>
+    </div>
+
+    <!-- Output setelah klik Yes -->
+    <p id="janji" class="hidden janji-text"></p>
+    <h2 id="loveText" class="love-text hidden">I Love You 💖</h2>
+    <div id="flowers" class="flowers hidden">🌸 🌹 🌼 🌷 🌺</div>
+  </div>
+
+  <div id="hearts"></div>
+
+  <!-- Backsound -->
+  <audio id="bgMusic" src="about you.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
